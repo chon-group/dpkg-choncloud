@@ -8,9 +8,9 @@
 1) In a terminal run the commands below:
 
 ```console
-echo "deb [trusted=yes] http://packages.chon.group/ chonos main" | sudo tee /etc/apt/sources.list.d/chonos.list
-sudo apt update
-sudo apt install choncloud
+echo "deb [trusted=yes] http://packages.chon.group/ chonos main" | tee /etc/apt/sources.list.d/chonos.list
+apt update
+apt install choncloud
 ```
 
 ## COPYRIGHT

@@ -6,12 +6,6 @@ echo "NTP=a.st1.ntp.br b.st1.ntp.br c.st1.ntp.br d.st1.ntp.br gps.ntp.br a.ntp.b
 timedatectl set-ntp true
 service systemd-timesyncd restart
 
-#SSH Root Login
-cat /etc/ssh/sshd_config | grep -v PermitRoot > /tmp/sshd_config
-echo "PermitRootLogin yes" >> /tmp/sshd_config 
-mv /tmp/sshd_config /etc/ssh/sshd_config
-systemctl enable ssh
-
 #Auto update every boot
 cat /etc/rc.local | grep -v "exit 0" | grep -v "chonosDDNSManager" > /tmp/rc.local
 echo "chonosDDNSManager --conf -d `/usr/bin/hostname`"
@@ -29,3 +23,5 @@ systemctl enable chonos-task.service
 systemctl start  chonos-task.service
 systemctl enable contextNetServer.service
 systemctl start  contextNetServer.service
+systemctl enable sshd
+systemctl restart sshd
