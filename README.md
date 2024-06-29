@@ -1,6 +1,6 @@
 # ChonOS for Cloud
 
-||
+|![chonCloud](https://github.com/chon-group/dpkg-choncloud/assets/32855001/4747e3e1-cf81-4cec-8fde-38d4f9248a7c)|
 |:--:|
 ||
 
