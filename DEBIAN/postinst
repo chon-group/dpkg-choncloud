@@ -6,10 +6,10 @@ echo "NTP=a.st1.ntp.br b.st1.ntp.br c.st1.ntp.br d.st1.ntp.br gps.ntp.br a.ntp.b
 timedatectl set-ntp true
 service systemd-timesyncd restart
 
-#Auto update every boot
+#Auto DDNS update every boot
 cat /etc/rc.local | grep -v "exit 0" | grep -v "chonosDDNSManager" > /tmp/rc.local
-echo "chonosDDNSManager --conf -d `/usr/bin/hostname`"
-echo "chonosDDNSManager --update"
+echo "chonosDDNSManager --conf -d `/usr/bin/hostname`" >> /tmp/rc.local
+echo "chonosDDNSManager --update" >> /tmp/rc.local
 echo "exit 0" >> /tmp/rc.local
 cat /tmp/rc.local > /etc/rc.local
 chmod +x /etc/rc.local
@@ -23,5 +23,9 @@ systemctl enable chonos-task.service
 systemctl start  chonos-task.service
 systemctl enable contextNetServer.service
 systemctl start  contextNetServer.service
-systemctl enable sshd
-systemctl restart sshd
+systemctl enable ssh.service
+systemctl restart ssh.service
+
+chonosDDNSManager --conf -d `/usr/bin/hostname`
+chonosDDNSManager --update
+chonosDDNSManager --status
