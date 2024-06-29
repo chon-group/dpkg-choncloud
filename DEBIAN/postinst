@@ -7,7 +7,9 @@ timedatectl set-ntp true
 service systemd-timesyncd restart
 
 #Auto DDNS update every boot
-cat /etc/rc.local | grep -v "exit 0" | grep -v "chonosDDNSManager" > /tmp/rc.local
+if [ -f "/etc/rc.local" ] ; then
+	cat /etc/rc.local | grep -v "exit 0" | grep -v "chonosDDNSManager" > /tmp/rc.local
+fi
 echo "chonosDDNSManager --conf -d `/usr/bin/hostname`" >> /tmp/rc.local
 echo "chonosDDNSManager --update" >> /tmp/rc.local
 echo "exit 0" >> /tmp/rc.local
