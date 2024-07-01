@@ -1,0 +1,11 @@
+[Unit]
+Description=ChonCloud Start Script
+After=network.target
+After=chonos-task.service
+
+[Service]
+ExecStart=/opt/group.chon/bin/cloud/onBoot.sh
+RemainAfterExit=true
+
+[Install]
+WantedBy=default.target

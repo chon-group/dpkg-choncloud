@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if [ -d /run/systemd/system ]; then
+	systemctl stop 	chonos-ddnsAutoUpdater.service
+	systemctl stop	choncloud-boot.service
+fi
+systemctl disable 	chonos-ddnsAutoUpdater.service
+systemctl disable	choncloud-boot.service

@@ -4,30 +4,26 @@
 echo "[Time]" > /etc/systemd/timesyncd.conf
 echo "NTP=a.st1.ntp.br b.st1.ntp.br c.st1.ntp.br d.st1.ntp.br gps.ntp.br a.ntp.br b.ntp.br c.ntp.b" >> /etc/systemd/timesyncd.conf
 timedatectl set-ntp true
-service systemd-timesyncd restart
 
-#Auto DDNS update every boot
-if [ -f "/etc/rc.local" ] ; then
-	cat /etc/rc.local | grep -v "exit 0" | grep -v "chonosDDNSManager" > /tmp/rc.local
+
+chonosDDNSManager --conf -d `/usr/bin/hostname` -u "ddns_user" -t "ddns_token"
+
+if [ -d /run/systemd/system ]; then
+    systemctl daemon-reload
+	systemctl restart	systemd-timesyncd
+	systemctl restart	chonos-task.service
+	systemctl restart	chonos-log.service
+	systemctl restart	chonos-sysconfig.service
+	systemctl restart	contextNetServer.service
+	systemctl restart	ssh.service
+	systemctl restart 	chonos-ddnsAutoUpdater.service
+	systemctl start		choncloud-boot.service
 fi
-echo "chonosDDNSManager --conf -d `/usr/bin/hostname`" >> /tmp/rc.local
-echo "chonosDDNSManager --update" >> /tmp/rc.local
-echo "exit 0" >> /tmp/rc.local
-cat /tmp/rc.local > /etc/rc.local
-chmod +x /etc/rc.local
-
-systemctl daemon-reload
+systemctl enable systemd-timesyncd
 systemctl enable chonos-log.service
-systemctl start  chonos-log.service
 systemctl enable chonos-sysconfig.service
-systemctl start  chonos-sysconfig.service
 systemctl enable chonos-task.service
-systemctl start  chonos-task.service
 systemctl enable contextNetServer.service
-systemctl start  contextNetServer.service
 systemctl enable ssh.service
-systemctl restart ssh.service
-
-chonosDDNSManager --conf -d `/usr/bin/hostname`
-chonosDDNSManager --update
-chonosDDNSManager --status
+systemctl enable chonos-ddnsAutoUpdater.service
+systemctl enable choncloud-boot.service

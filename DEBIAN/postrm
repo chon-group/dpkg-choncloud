@@ -1,5 +1,5 @@
 #!/bin/sh
 
-#Disabling the auto update every boot
-cat /etc/rc.local | grep -v "chonosDDNSManager" > /tmp/rc.local
-cat /tmp/rc.local > /etc/rc.local
+if [ -d /run/systemd/system ]; then
+    systemctl daemon-reload
+fi
