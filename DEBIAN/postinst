@@ -3,13 +3,22 @@
 #Time synchronization
 echo "[Time]" > /etc/systemd/timesyncd.conf
 echo "NTP=a.st1.ntp.br b.st1.ntp.br c.st1.ntp.br d.st1.ntp.br gps.ntp.br a.ntp.br b.ntp.br c.ntp.b" >> /etc/systemd/timesyncd.conf
-timedatectl set-ntp true
-
 
 chonosDDNSManager --conf -d `/usr/bin/hostname` -u "ddns_user" -t "ddns_token"
 
+#ChonCloud Welcome
+LINE='if [ -f /opt/group.chon/bin/cloud/welcome.sh ]; then clear; /opt/group.chon/bin/cloud/welcome.sh; fi'
+if ! grep -Fxq "$LINE" /root/.bashrc; then
+  echo "$LINE" >> /root/.bashrc
+fi
+
+if ! grep -Fxq "$LINE" /etc/skel/.bashrc; then
+  echo "$LINE" >> /etc/skel/.bashrc
+fi
+
 if [ -d /run/systemd/system ]; then
     systemctl daemon-reload
+	timedatectl set-ntp true
 	systemctl restart	systemd-timesyncd
 	systemctl restart	chonos-task.service
 	systemctl restart	chonos-log.service
