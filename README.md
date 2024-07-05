@@ -2,15 +2,18 @@
 
 |![chonCloud](https://github.com/chon-group/dpkg-choncloud/assets/32855001/4747e3e1-cf81-4cec-8fde-38d4f9248a7c)|
 |:--:|
-||
+|ChonOS for Cloud|
+
 
 ## How to Install?
 1) In a terminal run the commands below:
 
 ```console
-echo "deb [trusted=yes] http://packages.chon.group/ chonos main" | tee /etc/apt/sources.list.d/chonos.list
-apt update
-apt install choncloud
+echo "deb [trusted=yes] http://packages.chon.group/ chonos main" | sudo tee /etc/apt/sources.list.d/chonos.list
+sudo apt update
+sudo apt install chonos-lxc-template
+sudo lxc-create -t chonos-cloud mycontainer
+sudo lxc-start  mycontainer
 ```
 
 ## COPYRIGHT
