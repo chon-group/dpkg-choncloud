@@ -34,9 +34,9 @@ sudo lxc-create -t chonos-cloud mycontainer
 <details>
 <summary> Instructions to create a LXC Container using terminal command </summary>
 
-1. Download LXC Template available at [ChonOS SourceForge Repo](https://sourceforge.net/projects/chonos/files/rc1/chonos-cloud-0.0.5-LXC-template.tar.gz/download)
+1. Download LXC Template available at [ChonOS SourceForge Repo](https://sourceforge.net/projects/chonos/files/rc1/)
    
-   [![](https://github.com/chon-group/dpkg-choncloud/assets/32855001/9ee8ef69-ba82-45f6-ac60-cefd31a47675)](https://sourceforge.net/projects/chonos/files/rc1/chonos-cloud-0.0.5-LXC-template.tar.gz/download)
+   [![](https://github.com/chon-group/dpkg-choncloud/assets/32855001/9ee8ef69-ba82-45f6-ac60-cefd31a47675)](https://sourceforge.net/projects/chonos/files/rc1/)
 
 2. Import the CT Template to Proxmox Server
    
