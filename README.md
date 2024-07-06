@@ -23,7 +23,22 @@ sudo lxc-create -t chonos-cloud mycontainer
 
 ```console
 https://sourceforge.net/projects/chonos/files/rc1/chonos-cloud-0.0.5-LXC-template.tar.gz/download
+
 ```
+1. Downloading LXC Template
+   
+   ![image](https://github.com/chon-group/dpkg-choncloud/assets/32855001/9ee8ef69-ba82-45f6-ac60-cefd31a47675)
+
+2. Importing CT Template
+   
+   ![image](https://github.com/chon-group/dpkg-choncloud/assets/32855001/cd283360-6cb6-4a42-8b55-089c04c8b30f)
+
+3. Creating CT using the template
+   ![image](https://github.com/chon-group/dpkg-choncloud/assets/32855001/2f1d1aad-9518-4a3f-bab9-a4ee3d66f652)
+
+4. Starting CT
+   ![image](https://github.com/chon-group/dpkg-choncloud/assets/32855001/1bbe8dec-81d6-4d96-8edd-2ebe20a6ed96)
+
 
 
 ## COPYRIGHT
