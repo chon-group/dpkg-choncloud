@@ -5,18 +5,25 @@
 |ChonOS for Cloud|
 
 
-## How to Install?
-1) In a terminal run the commands below:
+## How to Install using LXC Container template?
+1. In a terminal run the commands below:
 
 ```console
 echo "deb [trusted=yes] http://packages.chon.group/ chonos main" | sudo tee /etc/apt/sources.list.d/chonos.list
 sudo apt update
 sudo apt install chonos-lxc-template
 sudo lxc-create -t chonos-cloud mycontainer
-sudo lxc-start  mycontainer
 ```
 
-![image](https://github.com/chon-group/dpkg-choncloud/assets/32855001/e50c3fde-aac3-417c-856a-56dd20fe4149)
+2. Running ChonOS for Cloud in a LXC Container:
+
+![](https://github.com/chon-group/dpkg-choncloud/assets/32855001/e50c3fde-aac3-417c-856a-56dd20fe4149)
+
+## How to install in a Proxmox
+
+```console
+https://sourceforge.net/projects/chonos/files/rc1/chonos-cloud-0.0.5-LXC-template.tar.gz/download
+```
 
 
 ## COPYRIGHT
