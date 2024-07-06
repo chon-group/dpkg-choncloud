@@ -5,10 +5,14 @@
 |ChonOS for Cloud|
 
 
-## How to Install using LXC Container template?
+## How to create a chonOSCloud LXC Container?
+
+<details>
+<summary> Instructions to create a LXC Container using terminal command </summary>
+
 1. In a terminal run the commands below:
 
-```console
+```sh
 echo "deb [trusted=yes] http://packages.chon.group/ chonos main" | sudo tee /etc/apt/sources.list.d/chonos.list
 sudo apt update
 sudo apt install chonos-lxc-template
@@ -19,27 +23,35 @@ sudo lxc-create -t chonos-cloud mycontainer
 
 ![](https://github.com/chon-group/dpkg-choncloud/assets/32855001/e50c3fde-aac3-417c-856a-56dd20fe4149)
 
-## How to install in a Proxmox
+3. Acess the WebConsole using the default credentiais 
 
-```console
-https://sourceforge.net/projects/chonos/files/rc1/chonos-cloud-0.0.5-LXC-template.tar.gz/download
+- user = root
+- passwd = root
 
-```
-1. Downloading LXC Template
+</details>
+
+## How to create a chonOSCloud CT in a Proxmox?
+<details>
+<summary> Instructions to create a LXC Container using terminal command </summary>
+
+1. Download LXC Template available at [ChonOS SourceForge Repo](https://sourceforge.net/projects/chonos/files/rc1/chonos-cloud-0.0.5-LXC-template.tar.gz/download)
    
-   ![image](https://github.com/chon-group/dpkg-choncloud/assets/32855001/9ee8ef69-ba82-45f6-ac60-cefd31a47675)
+   [![](https://github.com/chon-group/dpkg-choncloud/assets/32855001/9ee8ef69-ba82-45f6-ac60-cefd31a47675)](https://sourceforge.net/projects/chonos/files/rc1/chonos-cloud-0.0.5-LXC-template.tar.gz/download)
 
-2. Importing CT Template
+2. Import the CT Template to Proxmox Server
    
    ![image](https://github.com/chon-group/dpkg-choncloud/assets/32855001/cd283360-6cb6-4a42-8b55-089c04c8b30f)
 
-3. Creating CT using the template
+3. Create a container using the chonOSCloud template
    ![image](https://github.com/chon-group/dpkg-choncloud/assets/32855001/2f1d1aad-9518-4a3f-bab9-a4ee3d66f652)
 
-4. Starting CT
+4. Start the container
+
    ![image](https://github.com/chon-group/dpkg-choncloud/assets/32855001/1bbe8dec-81d6-4d96-8edd-2ebe20a6ed96)
 
+5. Acess the webconsole using your credentias
 
+</details>
 
 ## COPYRIGHT
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />The ChonOS for Cloud is part of the [_Cognitive Hardware on Networks Operating
