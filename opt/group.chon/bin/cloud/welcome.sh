@@ -1,5 +1,5 @@
 #!/bin/sh
-chonosDDNSManager --update
+chonosDDNSManager --update 2>> /dev/null >> /dev/null
 
 json_ddns=$(chonosDDNSManager --status)
 domain=$(echo $json_ddns | jq -r '.domain')
