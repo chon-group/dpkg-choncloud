@@ -1,14 +1,14 @@
 Package: choncloud
-Version: 0.0.5
+Version: 0.0.6
 Priority:
 Architecture: all
 Essential:
-Depends: chonos-sysconfig, chonos-embeddedmas, contextnet-server
-Pre-depends: chonos-ddnsmng, openssh-server, openssh-sftp-server, systemd-timesyncd, jq
+Depends: chonos-sysconfig (>= 2.0.0), chonos-embeddedmas (>= 1.2.1), contextnet-server
+Pre-depends: chonos-ddnsmng (>= 1.6.1), openssh-server, openssh-sftp-server, systemd-timesyncd, jq
 Suggests:
 Installed-Size:
 Maintainer: chon@grupo.cefet-rj.br
-Conflicts: chonide, chonos
+Conflicts: chonide, chonos, chonos-wsl-installer
 Replaces:
 Provides:
 Description: Meta package that provide an ChonOS Cloud System.
